@@ -7,7 +7,6 @@ require "simplecov"
 SimpleCov.start "rails"
 
 require "rspec/rails"
-require "rspec/autorun"
 require "webmock/rspec"
 
 Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
