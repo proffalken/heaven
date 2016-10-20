@@ -32,7 +32,7 @@ module Heaven
           log "Fetching the latest code"
           execute_and_log(%w{git fetch})
           execute_and_log(["git", "reset", "--hard", sha])
-          deploy_command = [cap_path, environment, task]
+          deploy_command = [cap_path, "--trace", environment, task]
           log "Executing capistrano: #{deploy_command.join(" ")}"
           execute_and_log(deploy_command)
         end
