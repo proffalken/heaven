@@ -60,6 +60,12 @@ ForwardAgent yes
 Host all
    Hostname *
    IdentityFile #{ssh_key}
+
+Host *.agileoperations.co.uk 10.235.0.*
+    ForwardAgent yes
+    ProxyCommand ssh ec2-user@52.31.202.132 -W %h:%p -o ConnectionAttempts=10 -o ConnectTimeout=60
+    User agops
+    StrictHostKeyChecking no
    EOF
       end
     end
