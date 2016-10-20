@@ -44,12 +44,20 @@ class Deployment
       ENV["DEPLOYMENT_PRIVATE_KEY"] || ""
     end
 
+    def ssh_known_hosts
+      ENV["SSH_KNOWN_HOSTS"] || ""
+    end
+
     def setup_ssh
       FileUtils.mkdir_p ssh_directory
       FileUtils.chmod_R 0700, ssh_directory
 
       File.open(ssh_key, "w", 0600) do |fp|
         fp.puts(ssh_private_key.split('\n'))
+      end
+
+      File.open("#{ssh_directory}/known_hosts", "w", 0600) do | fp |
+        fp.puts(ssh_kown_hosts.split('\n'))
       end
 
       File.open(ssh_config, "w", 0600) do |fp|
