@@ -57,7 +57,7 @@ class Deployment
       end
 
       File.open("#{ssh_directory}/known_hosts", "w", 0600) do | fp |
-        fp.puts(ssh_kown_hosts.split('\n'))
+        fp.puts(ssh_known_hosts.split('\n'))
       end
 
       File.open(ssh_config, "w", 0600) do |fp|
