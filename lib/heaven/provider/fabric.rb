@@ -13,7 +13,7 @@ module Heaven
       end
 
       def deploy_command_format
-        ENV["DEPLOY_COMMAND_FORMAT"] || "fab -R %{environment} %{task}:branch_name=%{ref}"
+        ENV["DEPLOY_COMMAND_FORMAT"] || "fab --show=debug -R %{environment} %{task}:branch_name=%{ref}"
       end
 
       def execute
