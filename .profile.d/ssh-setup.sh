@@ -16,7 +16,7 @@ chmod 600 ${HOME}/.ssh/id_rsa
 # Preload the known_hosts file  (see "version 2" below)
 
 # Start the SSH tunnel if not already running
-SSH_CMD="ssh -f -i ${HOME}/.ssh/id_rsa -N -L 2222:${www01.agileoperations.co.uk}:22 ${REMOTE_USER}@${REMOTE_SITE}"
+SSH_CMD="ssh -f -i ${HOME}/.ssh/id_rsa -N -L 2222:www01.agileoperations.co.uk:22 ec2-user@nat.agileoperations.co.uk"
 
 PID=`pgrep -f "${SSH_CMD}"`
 if [ $PID ] ; then
